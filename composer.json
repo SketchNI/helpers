@@ -1,0 +1,19 @@
+{
+    "name": "sketchni/helpers",
+    "description": "Some Laravel helpers that I use a lot.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            'src/helpers.php'
+        ]
+    },
+    "authors": [
+        {
+            "name": "Sketch",
+            "email": "sketch@sketchni.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
