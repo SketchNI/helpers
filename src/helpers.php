@@ -16,6 +16,21 @@ namespace {
         }
     }
 
+    if (!function_exists('not_null')) {
+        /**
+         * The inverse of "is_null".
+         *
+         * @param mixed $var
+         * @param array $array
+         *
+         * @return bool
+         */
+        function not_null(mixed $var): bool
+        {
+            return !is_null($var);
+        }
+    }
+
     if (!function_exists('url_strip_protocol')) {
         /**
          * Strip the protocol from a URL and return only the domain name.
