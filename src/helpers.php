@@ -1,14 +1,15 @@
 <?php
 
-use Carbon\Carbon;
+namespace
+{
+    use Carbon\Carbon;
 
-namespace {
     if (!function_exists('not_in_array')) {
         /**
          * The inverse of "in_array".
          *
-         * @param mixed $var
-         * @param array $array
+         * @param  mixed  $var
+         * @param  array  $array
          *
          * @return bool
          */
@@ -22,8 +23,8 @@ namespace {
         /**
          * The inverse of "is_null".
          *
-         * @param mixed $var
-         * @param array $array
+         * @param  mixed  $var
+         * @param  array  $array
          *
          * @return bool
          */
@@ -37,7 +38,7 @@ namespace {
         /**
          * Strip the protocol from a URL and return only the domain name.
          *
-         * @param string $url
+         * @param  string  $url
          *
          * @return string
          * @throws InvalidUrlException
@@ -53,7 +54,7 @@ namespace {
                     "wss", "ws", "git", "git+ssh", "sftp", "smb", "ogg", "expect", "zlib",
                     "http", "ftp", "compress.bzip2", "phar", "ssh2.shell", "ssh2.exec",
                     "ssh2.tunnel", "ssh2.scp", "ssh2.sftp", "zip", "compress.zstd", "rar",
-                    "phar"
+                    "phar",
                 ])) {
                 return explode('://', $url)[1];
             }
@@ -64,17 +65,17 @@ namespace {
         /**
          * Convert a twitch clip/stream duration to a readable format.
          *
-         * @param string $duration
+         * @param  string  $duration
          *
          * @return string
          */
         function duration(string $duration): string
         {
             preg_match("/([0-9])m([0-9])s/", $duration, $matches);
-        
+
             $minutes = strlen($matches[1]) === 1 ? sprintf("0%s", $matches[1]) : $matches[1];
             $seconds = strlen($matches[2]) === 1 ? sprintf("0%s", $matches[2]) : $matches[2];
-        
+
             return Carbon::createFromFormat('i:s', $minutes.':'.$seconds)->format('H:i:s');
         }
     }
