@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 namespace {
     if (!function_exists('not_in_array')) {
         /**
@@ -55,6 +57,25 @@ namespace {
                 ])) {
                 return explode('://', $url)[1];
             }
+        }
+    }
+
+    if (!function_exists('duration')) {
+        /**
+         * Convert a twitch clip/stream duration to a readable format.
+         *
+         * @param string $duration
+         *
+         * @return string
+         */
+        function duration(string $duration): string
+        {
+            preg_match("/([0-9])m([0-9])s/", $duration, $matches);
+        
+            $minutes = strlen($matches[1]) === 1 ? sprintf("0%s", $matches[1]) : $matches[1];
+            $seconds = strlen($matches[2]) === 1 ? sprintf("0%s", $matches[2]) : $matches[2];
+        
+            return Carbon::createFromFormat('i:s', $minutes.':'.$seconds)->format('H:i:s');
         }
     }
 }
