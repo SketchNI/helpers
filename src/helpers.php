@@ -23,9 +23,7 @@ namespace
         /**
          * The inverse of "is_null".
          *
-         * @param  mixed  $var
-         * @param  array  $array
-         *
+         * @param mixed $var
          * @return bool
          */
         function not_null(mixed $var): bool
